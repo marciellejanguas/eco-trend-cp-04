@@ -12,19 +12,34 @@ export function useProducts({ category, sort }) {
       try {
         setLoading(true);
         setError(null);
+        const base = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+        if (!base) throw new Error("API base URL ausente. Verifique o .env e reinicie o dev server.");
 
-        const base = import.meta.env.VITE_API_URL;
-        const params = new URLSearchParams();
-        if (category) params.set("category", category);
-        if (sort) {
-          params.set("_sort", "price");
-          params.set("_order", sort); // "asc" | "desc"
+        const url = new URL(`${base}/products`);
+
+        const cat = (category || "").toLowerCase().trim();
+        if (cat) url.searchParams.set("category", cat);
+
+        const ord = (sort || "").toLowerCase().trim();
+        if (ord === "asc" || ord === "desc") {
+          url.searchParams.set("_sort", "price");
+          url.searchParams.set("_order", ord);
         }
-        const url = `${base}/products${params.toString() ? `?${params.toString()}` : ""}`;
 
-        const res = await fetch(url, { signal: controller.signal });
+        console.log("🔎 URL chamada:", url.toString());
+
+        const res = await fetch(url.toString(), {
+          signal: controller.signal,
+          headers: { Accept: "application/json" },
+        });
+
+        console.log("📡 Status:", res.status);
+
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        setData(await res.json());
+        const json = await res.json();
+        console.log("📦 Itens recebidos:", Array.isArray(json) ? json.length : json);
+
+        setData(json);
       } catch (e) {
         if (e.name !== "AbortError") setError(e.message || "Erro ao carregar produtos");
       } finally {
@@ -33,7 +48,7 @@ export function useProducts({ category, sort }) {
     })();
 
     return () => controller.abort();
-  }, [category, sort]); // refaz o fetch quando filtros mudam
+  }, [category, sort]);
 
   return { data, loading, error };
 }
