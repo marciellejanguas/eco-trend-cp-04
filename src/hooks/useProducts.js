@@ -31,3 +31,15 @@ export function useProducts() {
 
   return { data, loading, error };
 }
+
+const base = import.meta.env.VITE_API_URL;
+const url = `${base}/products`;
+console.log("🔎 Fetch URL:", url);
+
+const res = await fetch(url, { signal: controller.signal });
+console.log("📡 HTTP status:", res.status);
+
+const json = await res.json();
+console.log("📦 Produtos recebidos:", Array.isArray(json) ? json.length : typeof json, json);
+
+setData(json);
