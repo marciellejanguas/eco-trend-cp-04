@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useProducts() {
+export function useProducts({ category, sort }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,12 +13,18 @@ export function useProducts() {
         setLoading(true);
         setError(null);
 
-        const base = import.meta.env.VITE_API_URL; // vem do .env
-        const res = await fetch(`${base}/products`, { signal: controller.signal });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const base = import.meta.env.VITE_API_URL;
+        const params = new URLSearchParams();
+        if (category) params.set("category", category);
+        if (sort) {
+          params.set("_sort", "price");
+          params.set("_order", sort); // "asc" | "desc"
+        }
+        const url = `${base}/products${params.toString() ? `?${params.toString()}` : ""}`;
 
-        const json = await res.json();
-        setData(json);
+        const res = await fetch(url, { signal: controller.signal });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        setData(await res.json());
       } catch (e) {
         if (e.name !== "AbortError") setError(e.message || "Erro ao carregar produtos");
       } finally {
@@ -27,19 +33,7 @@ export function useProducts() {
     })();
 
     return () => controller.abort();
-  }, []);
+  }, [category, sort]); // refaz o fetch quando filtros mudam
 
   return { data, loading, error };
 }
-
-const base = import.meta.env.VITE_API_URL;
-const url = `${base}/products`;
-console.log("🔎 Fetch URL:", url);
-
-const res = await fetch(url, { signal: controller.signal });
-console.log("📡 HTTP status:", res.status);
-
-const json = await res.json();
-console.log("📦 Produtos recebidos:", Array.isArray(json) ? json.length : typeof json, json);
-
-setData(json);
