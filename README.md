@@ -26,34 +26,40 @@ E-commerce de produtos sustentáveis, com foco em **funcionalidades interativas*
 
 ## Como rodar
 1. Instalar deps:
-   ```bash
-   npm install
+```
+npm install
+```
 
 2. Criar .env na raiz:
-    ```bash
-    VITE_API_URL=http://localhost:5174
+```
+VITE_API_URL=http://localhost:5174
+```
 
 3. Subir a fake API (terminal 1):
-    ```bash
-    npm run api
-    Endpoints: http://localhost:5174/products
+```
+npm run api
+Endpoints: http://localhost:5174/products
+```
 
 4. Subir o app (terminal 2):
-    ```bash
-    npm run dev
-    App: http://localhost:5173/
+```
+npm run dev
+App: http://localhost:5173/
+```
 
 # Endpoints (JSON Server)
 - GET /products
 - Filtros:
-    ```bash
-    GET /products?category=roupas
-    GET /products?_sort=price&_order=asc
-    Combinados: GET /products?category=casa&_sort=price&_order=desc
+```
+GET /products?category=roupas
+GET /products?_sort=price&_order=asc
+Combinados: GET /products?category=casa&_sort=price&_order=desc
+```
 
 # Scripts
-    ```bash
-    npm run dev — Vite em dev
-    npm run api — JSON Server em 5174
-    npm run build — build de produção
-    npm run preview — pré-visualização do build
+```
+npm run dev — Vite em dev
+npm run api — JSON Server em 5174
+npm run build — build de produção
+npm run preview — pré-visualização do build
+```
