@@ -43,14 +43,6 @@ E-commerce de produtos sustentáveis, com foco em **funcionalidades interativas*
     npm run dev
     App: http://localhost:5173/
 
-# Scripts
-
-```bash
-npm run dev — Vite em dev
-npm run api — JSON Server em 5174
-npm run build — build de produção
-npm run preview — pré-visualização do build
-
 # Endpoints (JSON Server)
 - GET /products
 - Filtros:
@@ -58,3 +50,10 @@ npm run preview — pré-visualização do build
     GET /products?category=roupas
     GET /products?_sort=price&_order=asc
     Combinados: GET /products?category=casa&_sort=price&_order=desc
+
+# Scripts
+    ```bash
+    npm run dev — Vite em dev
+    npm run api — JSON Server em 5174
+    npm run build — build de produção
+    npm run preview — pré-visualização do build
