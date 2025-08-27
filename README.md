@@ -52,9 +52,8 @@ npm run build — build de produção
 npm run preview — pré-visualização do build
 
 # Endpoints (JSON Server)
-GET /products
-
-Filtros:
+- GET /products
+- Filtros:
     ```bash
     GET /products?category=roupas
     GET /products?_sort=price&_order=asc
