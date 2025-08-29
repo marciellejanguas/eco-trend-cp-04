@@ -298,7 +298,7 @@ header {
   margin-bottom: 5px;
 }
 
-.filtragem input,
+input,
 select {
   width: 100%;
   padding: 8px 15px;
@@ -310,7 +310,7 @@ select {
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.carrinho {
+.modal {
   position: fixed;
   z-index: 12;
   background-color: rgba(0, 0, 0, 0.8);
@@ -323,15 +323,15 @@ select {
   align-items: center;
 }
 
-.carrinho button {
+.modal button {
   transition: transform 0.1s ease-in-out;
 }
 
-.carrinho button:hover {
-  transform: scale(1.05)
+.modal button:hover {
+  transform: scale(1.05);
 }
 
-.carrinho-container {
+.modal-container {
   width: 100%;
   max-width: 1280px;
   height: 80vh;
@@ -344,7 +344,7 @@ select {
   position: relative;
 }
 
-.carrinho-close-button {
+.modal-close-button {
   position: absolute;
   top: 25px;
   left: 45px;
@@ -357,11 +357,16 @@ select {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.carrinho-close-button * {
+.modal-close-button * {
   width: 30px;
   height: 30px;
   color: white;
   vertical-align: middle;
+}
+
+.carrinho,
+.checkout {
+  display: none;
 }
 
 .carrinho-products {
@@ -410,7 +415,7 @@ select {
 }
 
 .carrinho-product .product-quantity button * {
-  color: rgb(141, 141, 141)
+  color: rgb(141, 141, 141);
 }
 
 .carrinho-product h3 {
@@ -418,9 +423,9 @@ select {
   font-weight: normal;
 }
 
-.carrinho-product .product-total { 
+.carrinho-product .product-total {
   min-width: 100px;
-  text-align: right
+  text-align: right;
 }
 
 .carrinho-resumo {
@@ -475,15 +480,24 @@ select {
   padding: 10px 0;
 }
 
+.carrinho-resumo-container p {
+  color: rgb(51, 51, 51);
+}
+
 .carrinho-resumo-container h3 {
   font-weight: normal;
 }
 
 .carrinho-resumo-container .total {
-  border-top: 1px solid rgba(0, 0, 0, 0.1)
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.carrinho-resumo-container button {
+.carrinho-resumo-container .frete p {
+  color: rgb(81, 164, 81);
+}
+
+.carrinho-resumo-container button,
+#confirmar-pagamento {
   padding: 10px;
   background-color: rgb(81, 164, 81);
   border: 0;
@@ -491,7 +505,64 @@ select {
   color: white;
   letter-spacing: 1px;
   border-radius: 4px;
-  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  width: 100%;
 }
 
+.checkout-dados {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  padding-right: 30px;
+}
+
+.field-container {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.field {
+  width: 100%;
+}
+
+.field input,
+select {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.field p {
+  font-size: 14px;
+}
+
+.w30 {
+  width: 30% !important;
+}
+
+.checkout-pagamento {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 15px;
+  padding-left: 30px;
+}
+
+.efetuar-pagamento {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  display: none;
+}
+
+.efetuar-pagamento img {
+  width: 50%;
+}

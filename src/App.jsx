@@ -6,6 +6,7 @@ import Banner from "./components/banner";
 import Produtos from "./components/produtos";
 import Filtragem from "./components/filtragem";
 import Carrinho from "./components/carrinho";
+import Checkout from "./components/checkout";
 
 export default function App() {
   const [category, setCategory] = useState("");
@@ -19,6 +20,7 @@ export default function App() {
         <Produtos />
         <Filtragem />
         <Carrinho />
+        <Checkout />
 
         <FilterBar
           category={category}

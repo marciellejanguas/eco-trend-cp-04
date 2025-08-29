@@ -2,9 +2,9 @@ import { X, Plus, Minus } from "lucide-react";
 
 export default function Carrinho() {
   return (
-    <section className="carrinho">
-      <div className="carrinho-container">
-        <button className="carrinho-close-button">
+    <section className="modal carrinho">
+      <div className="modal-container">
+        <button className="modal-close-button">
           <X />
         </button>
         <div className="carrinho-products">
@@ -17,9 +17,13 @@ export default function Carrinho() {
               <img src="img/produtos/1.png" alt="" />
               <p className="product-name">Vaso de Planta</p>
               <div className="product-quantity">
-                <button><Minus /></button>
+                <button>
+                  <Minus />
+                </button>
                 <h3>1</h3>
-                <button><Plus /></button>
+                <button>
+                  <Plus />
+                </button>
               </div>
               <h3 className="product-total">R$ 25,00</h3>
             </div>
@@ -28,9 +32,13 @@ export default function Carrinho() {
               <img src="img/produtos/2.png" alt="" />
               <p className="product-name">Sacola Ecobag</p>
               <div className="product-quantity">
-                <button><Minus /></button>
+                <button>
+                  <Minus />
+                </button>
                 <h3>2</h3>
-                <button><Plus /></button>
+                <button>
+                  <Plus />
+                </button>
               </div>
               <h3 className="product-total">R$ 290,00</h3>
             </div>
@@ -39,12 +47,16 @@ export default function Carrinho() {
               <img src="img/produtos/6.png" alt="" />
               <p className="product-name">Garrafa Térmica Inox</p>
               <div className="product-quantity">
-                <button><Minus /></button>
+                <button>
+                  <Minus />
+                </button>
                 <h3>1</h3>
-                <button><Plus /></button>
+                <button>
+                  <Plus />
+                </button>
               </div>
               <h3 className="product-total">R$ 74,90</h3>
-            </div> 
+            </div>
           </div>
         </div>
 
@@ -62,6 +74,11 @@ export default function Carrinho() {
             <div>
               <h3>Desconto</h3>
               <p>R$ 0,00</p>
+            </div>
+
+            <div className="frete">
+              <h3>Frete</h3>
+              <p>Grátis</p>
             </div>
 
             <div className="total">
