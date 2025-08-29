@@ -102,6 +102,15 @@ header {
   outline: 0;
   border: 0;
   cursor: pointer;
+  position: relative;
+}
+
+.header-buttons #cart-button p {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .header-buttons #login-button {
@@ -299,4 +308,78 @@ select {
   border: 0;
   outline: 0;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.carrinho {
+  position: fixed;
+  z-index: 12;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrinho-container {
+  width: 100%;
+  max-width: 1280px;
+  height: 80vh;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  padding: 80px 50px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.carrinho-close-button {
+  position: absolute;
+  top: 25px;
+  left: 45px;
+  cursor: pointer;
+  background-color: rgb(205, 76, 56);
+  padding: 0 10px;
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.carrinho-close-button * {
+  width: 30px;
+  height: 30px;
+  color: white;
+  vertical-align: middle;
+}
+
+.carrinho-products {
+  width: 70%;
+}
+
+.carrinho-resumo {
+  width: 30%;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carrinho .title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.carrinho .title h1 {
+  font-weight: normal;
+}
+
+.carrinho .title p {
+  font-size: 22px;
+  font-weight: 200;
+  color: rgb(54, 54, 54);
 }

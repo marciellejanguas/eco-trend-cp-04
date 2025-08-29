@@ -5,6 +5,7 @@ import Header from "./components/header";
 import Banner from "./components/banner";
 import Produtos from "./components/produtos";
 import Filtragem from "./components/filtragem";
+import Carrinho from "./components/carrinho";
 
 export default function App() {
   const [category, setCategory] = useState("");
@@ -17,6 +18,7 @@ export default function App() {
         <Banner />
         <Produtos />
         <Filtragem />
+        <Carrinho />
 
         <FilterBar
           category={category}

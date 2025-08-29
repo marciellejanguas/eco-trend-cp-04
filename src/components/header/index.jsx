@@ -18,6 +18,7 @@ export default function Header() {
 
       <div className="header-buttons">
         <button id="cart-button">
+          <p>3</p>
           <ShoppingCart />
         </button>
         <button id="login-button">Login</button>
