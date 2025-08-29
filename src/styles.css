@@ -323,6 +323,14 @@ select {
   align-items: center;
 }
 
+.carrinho button {
+  transition: transform 0.1s ease-in-out;
+}
+
+.carrinho button:hover {
+  transform: scale(1.05)
+}
+
 .carrinho-container {
   width: 100%;
   max-width: 1280px;
@@ -358,10 +366,66 @@ select {
 
 .carrinho-products {
   width: 70%;
+  padding: 20px;
+}
+
+.carrinho-product {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 0 20px;
+}
+
+.carrinho-product img {
+  width: 100px;
+  height: 100px;
+}
+
+.carrinho-product .product-name {
+  font-weight: 300;
+  font-size: 15px;
+  width: 200px;
+  height: 100%;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.carrinho-product .product-quantity {
+  display: flex;
+  gap: 15px;
+}
+
+.carrinho-product .product-quantity button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.carrinho-product .product-quantity button * {
+  color: rgb(141, 141, 141)
+}
+
+.carrinho-product h3 {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.carrinho-product .product-total { 
+  min-width: 100px;
+  text-align: right
 }
 
 .carrinho-resumo {
   width: 30%;
+  height: 100%;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -372,6 +436,7 @@ select {
   display: flex;
   align-items: center;
   gap: 20px;
+  margin-bottom: 30px;
 }
 
 .carrinho .title h1 {
@@ -383,3 +448,50 @@ select {
   font-weight: 200;
   color: rgb(54, 54, 54);
 }
+
+.carrinho-products-list {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.carrinho-resumo-container {
+  padding: 0 40px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.carrinho-resumo-container div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+.carrinho-resumo-container h3 {
+  font-weight: normal;
+}
+
+.carrinho-resumo-container .total {
+  border-top: 1px solid rgba(0, 0, 0, 0.1)
+}
+
+.carrinho-resumo-container button {
+  padding: 10px;
+  background-color: rgb(81, 164, 81);
+  border: 0;
+  outline: 0;
+  color: white;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
