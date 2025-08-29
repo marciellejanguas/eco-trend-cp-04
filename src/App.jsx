@@ -3,6 +3,8 @@ import FilterBar from "./components/FilterBar";
 import ProductList from "./components/ProductList";
 import Header from "./components/header";
 import Banner from "./components/banner";
+import Produtos from "./components/produtos";
+import Filtragem from "./components/filtragem";
 
 export default function App() {
   const [category, setCategory] = useState("");
@@ -13,6 +15,8 @@ export default function App() {
       <div className="container">
         <Header />
         <Banner />
+        <Produtos />
+        <Filtragem />
 
         <FilterBar
           category={category}
