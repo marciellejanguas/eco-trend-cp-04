@@ -7,12 +7,14 @@ import Produtos from "./components/produtos";
 import Filtragem from "./components/filtragem";
 import Carrinho from "./components/carrinho";
 import Checkout from "./components/checkout";
+import Popup from "./components/popup";
 
 export default function App() {
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
 
   const [carrinho, setCarrinho] = useState([]);
+  const [popupTimeout, setPopupTimeout] = useState();
 
   const produtos = [
     {
@@ -83,6 +85,8 @@ export default function App() {
       });
       setCarrinho(newCarrinho);
     }
+
+    mostrarPopup();
   }
 
   function atualizarNoCarrinho(produto) {
@@ -103,6 +107,21 @@ export default function App() {
     setCarrinho(newCarrinho);
   }
 
+  function mostrarPopup() {
+    clearTimeout(popupTimeout);
+
+    const popup = document.getElementById("popup");
+    popup.style["bottom"] = "-200px";
+    setTimeout(() => {
+      popup.style["bottom"] = "10px";
+    }, 50);
+    setPopupTimeout(
+      setTimeout(() => {
+        popup.style["bottom"] = "-200px";
+      }, 2000)
+    );
+  }
+
   return (
     <main>
       <div className="container">
@@ -119,6 +138,7 @@ export default function App() {
           removerDoCarrinho={removerDoCarrinho}
         />
         <Checkout />
+        <Popup />
 
         <FilterBar
           category={category}

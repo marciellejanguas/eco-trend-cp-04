@@ -21,7 +21,14 @@ export default function Header({ carrinho }) {
           id="cart-button"
           onClick={() => {
             const divCarrinho = document.getElementById("carrinho");
+            const modais = document.querySelectorAll(".modal-container");
             divCarrinho.style["display"] = "flex";
+            modais.forEach((modal) => {
+              modal.style["top"] = "-200%";
+              setTimeout(() => {
+                modal.style["top"] = 0;
+              }, 100);
+            });
           }}
         >
           <p>{carrinho.length}</p>

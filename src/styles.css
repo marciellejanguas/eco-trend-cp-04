@@ -342,6 +342,8 @@ select {
   display: flex;
   justify-content: space-between;
   position: relative;
+  top: -200%;
+  transition: 0.3s ease-out;
 }
 
 .modal-close-button {
@@ -565,4 +567,36 @@ select {
 
 .efetuar-pagamento img {
   width: 50%;
+}
+
+.popup {
+  width: 250px;
+  height: 50px;
+  background-color: rgb(237, 255, 237);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: fixed;
+  bottom: -100px;
+  right: 50%;
+  margin-right: -125px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: 0.2s ease-out;
+}
+
+.popup h1 {
+  font-weight: 300;
+  font-size: 20px;
+  color: rgb(81, 164, 81);
+  letter-spacing: 1px;
+}
+
+.popup svg,
+.popup svg * {
+  color: rgb(81, 164, 81);
+  width: 26px;
+  height: 26px;
 }

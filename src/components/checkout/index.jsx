@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 export default function Checkout() {
   return (
     <section className="modal checkout" id="checkout">
-      <div className="modal-container">
+      <div className="modal-container" id="modal-checkout">
         <button
           className="modal-close-button"
           onClick={() => {

@@ -1,5 +1,4 @@
 import { X, Plus, Minus } from "lucide-react";
-import { useEffect } from "react";
 
 export default function Carrinho({
   carrinho,
@@ -12,7 +11,7 @@ export default function Carrinho({
 
   return (
     <section className="modal carrinho" id="carrinho">
-      <div className="modal-container">
+      <div className="modal-container" id="modal-carrinho">
         <button
           className="modal-close-button"
           onClick={() => {
@@ -29,7 +28,7 @@ export default function Carrinho({
           </div>
           <div className="carrinho-products-list">
             {carrinho.map((produto) => (
-              <div className="carrinho-product">
+              <div className="carrinho-product" key={produto.key}>
                 <img src={produto.imgUrl} alt="" />
                 <p className="product-name">{produto.nome}</p>
                 <div className="product-quantity">
@@ -100,8 +99,15 @@ export default function Carrinho({
               onClick={() => {
                 const divCarrinho = document.getElementById("carrinho");
                 const divCheckout = document.getElementById("checkout");
+                const modais = document.querySelectorAll(".modal-container");
                 divCarrinho.style["display"] = "none";
                 divCheckout.style["display"] = "flex";
+                modais.forEach((modal) => {
+                  modal.style["top"] = "-200%";
+                  setInterval(() => {
+                    modal.style["top"] = 0;
+                  }, 100);
+                });
               }}
             >
               Seguir com pagamento
