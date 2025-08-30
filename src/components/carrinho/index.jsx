@@ -1,4 +1,5 @@
-import { X, Plus, Minus } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function Carrinho({
   carrinho,
@@ -19,7 +20,7 @@ export default function Carrinho({
             divCarrinho.style["display"] = "none";
           }}
         >
-          <X />
+          <FontAwesomeIcon icon={faXmark} />
         </button>
         <div className="carrinho-products">
           <div className="title">
@@ -47,7 +48,7 @@ export default function Carrinho({
                       }
                     }}
                   >
-                    <Minus />
+                    <FontAwesomeIcon icon={faMinus} size="lg" />
                   </button>
                   <h3>{produto.quantidade}</h3>
                   <button
@@ -56,7 +57,7 @@ export default function Carrinho({
                       atualizarNoCarrinho(produto);
                     }}
                   >
-                    <Plus />
+                    <FontAwesomeIcon icon={faPlus} size="lg" />
                   </button>
                 </div>
                 <h3 className="product-total">
@@ -110,7 +111,7 @@ export default function Carrinho({
                 });
               }}
             >
-              Seguir com pagamento
+              Finalizar Compra
             </button>
           </div>
         </div>

@@ -1,4 +1,5 @@
-import { X } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function Checkout() {
   return (
@@ -11,7 +12,7 @@ export default function Checkout() {
             divCheckout.style["display"] = "none";
           }}
         >
-          <X />
+          <FontAwesomeIcon icon={faXmark} />
         </button>
 
         <div className="checkout-dados">

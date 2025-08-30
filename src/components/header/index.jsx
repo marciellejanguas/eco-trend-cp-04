@@ -1,4 +1,5 @@
-import { ShoppingCart } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header({ carrinho }) {
   return (
@@ -32,7 +33,7 @@ export default function Header({ carrinho }) {
           }}
         >
           <p>{carrinho.length}</p>
-          <ShoppingCart />
+          <FontAwesomeIcon icon={faCartShopping} size="lg" />
         </button>
         <button id="login-button">Login</button>
       </div>
