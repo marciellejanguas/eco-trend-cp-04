@@ -1,62 +1,73 @@
 import { X, Plus, Minus } from "lucide-react";
+import { useEffect } from "react";
 
-export default function Carrinho() {
+export default function Carrinho({
+  carrinho,
+  atualizarNoCarrinho,
+  removerDoCarrinho,
+}) {
+  const valorTotal = carrinho.reduce((sum, curr) => {
+    return sum + curr.valor * curr.quantidade;
+  }, 0);
+
   return (
-    <section className="modal carrinho">
+    <section className="modal carrinho" id="carrinho">
       <div className="modal-container">
-        <button className="modal-close-button">
+        <button
+          className="modal-close-button"
+          onClick={() => {
+            const divCarrinho = document.getElementById("carrinho");
+            divCarrinho.style["display"] = "none";
+          }}
+        >
           <X />
         </button>
         <div className="carrinho-products">
           <div className="title">
             <h1>Meu carrinho</h1>
-            <p>(3 itens)</p>
+            <p>({carrinho.length} itens)</p>
           </div>
           <div className="carrinho-products-list">
-            <div className="carrinho-product">
-              <img src="img/produtos/1.png" alt="" />
-              <p className="product-name">Vaso de Planta</p>
-              <div className="product-quantity">
-                <button>
-                  <Minus />
-                </button>
-                <h3>1</h3>
-                <button>
-                  <Plus />
-                </button>
+            {carrinho.map((produto) => (
+              <div className="carrinho-product">
+                <img src={produto.imgUrl} alt="" />
+                <p className="product-name">{produto.nome}</p>
+                <div className="product-quantity">
+                  <button
+                    onClick={() => {
+                      if (produto.quantidade > 1) {
+                        produto.quantidade--;
+                        atualizarNoCarrinho(produto);
+                      } else {
+                        let result = confirm(
+                          "Tem certeza que deseja remover do carrinho?"
+                        );
+                        if (result) {
+                          removerDoCarrinho(produto.key);
+                        }
+                      }
+                    }}
+                  >
+                    <Minus />
+                  </button>
+                  <h3>{produto.quantidade}</h3>
+                  <button
+                    onClick={() => {
+                      produto.quantidade++;
+                      atualizarNoCarrinho(produto);
+                    }}
+                  >
+                    <Plus />
+                  </button>
+                </div>
+                <h3 className="product-total">
+                  R${" "}
+                  {(produto.valor * produto.quantidade)
+                    .toFixed(2)
+                    .replace(".", ",")}
+                </h3>
               </div>
-              <h3 className="product-total">R$ 25,00</h3>
-            </div>
-
-            <div className="carrinho-product">
-              <img src="img/produtos/2.png" alt="" />
-              <p className="product-name">Sacola Ecobag</p>
-              <div className="product-quantity">
-                <button>
-                  <Minus />
-                </button>
-                <h3>2</h3>
-                <button>
-                  <Plus />
-                </button>
-              </div>
-              <h3 className="product-total">R$ 290,00</h3>
-            </div>
-
-            <div className="carrinho-product">
-              <img src="img/produtos/6.png" alt="" />
-              <p className="product-name">Garrafa Térmica Inox</p>
-              <div className="product-quantity">
-                <button>
-                  <Minus />
-                </button>
-                <h3>1</h3>
-                <button>
-                  <Plus />
-                </button>
-              </div>
-              <h3 className="product-total">R$ 74,90</h3>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -68,7 +79,7 @@ export default function Carrinho() {
           <div className="carrinho-resumo-container">
             <div>
               <h3>Subtotal</h3>
-              <p>R$ 100,00</p>
+              <p>R$ {valorTotal.toFixed(2).replace(".", ",")}</p>
             </div>
 
             <div>
@@ -83,9 +94,18 @@ export default function Carrinho() {
 
             <div className="total">
               <h3>Total</h3>
-              <p>R$ 100,00</p>
+              <p>R$ {valorTotal.toFixed(2).replace(".", ",")}</p>
             </div>
-            <button>Seguir com pagamento</button>
+            <button
+              onClick={() => {
+                const divCarrinho = document.getElementById("carrinho");
+                const divCheckout = document.getElementById("checkout");
+                divCarrinho.style["display"] = "none";
+                divCheckout.style["display"] = "flex";
+              }}
+            >
+              Seguir com pagamento
+            </button>
           </div>
         </div>
       </div>

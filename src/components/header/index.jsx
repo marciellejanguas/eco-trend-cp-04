@@ -1,6 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 
-export default function Header() {
+export default function Header({ carrinho }) {
   return (
     <header>
       <h1>
@@ -17,8 +17,14 @@ export default function Header() {
       </div>
 
       <div className="header-buttons">
-        <button id="cart-button">
-          <p>3</p>
+        <button
+          id="cart-button"
+          onClick={() => {
+            const divCarrinho = document.getElementById("carrinho");
+            divCarrinho.style["display"] = "flex";
+          }}
+        >
+          <p>{carrinho.length}</p>
           <ShoppingCart />
         </button>
         <button id="login-button">Login</button>

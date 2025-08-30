@@ -2,9 +2,15 @@ import { X } from "lucide-react";
 
 export default function Checkout() {
   return (
-    <section className="modal checkout">
+    <section className="modal checkout" id="checkout">
       <div className="modal-container">
-        <button className="modal-close-button">
+        <button
+          className="modal-close-button"
+          onClick={() => {
+            const divCheckout = document.getElementById("checkout");
+            divCheckout.style["display"] = "none";
+          }}
+        >
           <X />
         </button>
 
@@ -53,8 +59,6 @@ export default function Checkout() {
           <div className="field">
             <p>Forma de Pagamento</p>
             <select
-              name=""
-              id=""
               onChange={(event) => {
                 const value = event.target.value;
                 const credit = document.getElementById("pagamento-credit");
@@ -66,12 +70,13 @@ export default function Checkout() {
                 } else if (value == "pix") {
                   pix.style["display"] = "flex";
                   credit.style["display"] = "none";
+                } else {
+                  pix.style["display"] = "none";
+                  credit.style["display"] = "none";
                 }
               }}
             >
-              <option value="" selected disabled>
-                Selecione a forma de pagamento
-              </option>
+              <option value="">Selecione a forma de pagamento</option>
               <option value="credit">Cartão de Crédito</option>
               <option value="pix">PIX</option>
             </select>
