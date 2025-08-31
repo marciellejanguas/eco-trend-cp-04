@@ -23,57 +23,6 @@ export default function App() {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
   }, [carrinho]);
 
-  const produtos = [
-    {
-      key: 1,
-      nome: "Vaso de Planta",
-      valor: 25,
-      imgUrl: "img/produtos/1.png",
-    },
-    {
-      key: 2,
-      nome: "Sacola Ecobag",
-      valor: 145,
-      imgUrl: "img/produtos/2.png",
-    },
-    {
-      key: 3,
-      nome: "Escova de Dentes (Bambu)",
-      valor: 15,
-      imgUrl: "img/produtos/3.png",
-    },
-    {
-      key: 4,
-      nome: "Sabonete Ecológico",
-      valor: 27.9,
-      imgUrl: "img/produtos/4.png",
-    },
-    {
-      key: 5,
-      nome: "Caderno Reciclado (Nexa IT)",
-      valor: 5,
-      imgUrl: "img/produtos/5.png",
-    },
-    {
-      key: 6,
-      nome: "Garrafa Térmica Inox",
-      valor: 74.9,
-      imgUrl: "img/produtos/6.png",
-    },
-    {
-      key: 7,
-      nome: "Armação Óculos em Madeira",
-      valor: 199.9,
-      imgUrl: "img/produtos/7.png",
-    },
-    {
-      key: 8,
-      nome: "Carregador Solar Portátil",
-      valor: 180,
-      imgUrl: "img/produtos/8.png",
-    },
-  ];
-
   function adicionarAoCarrinho(produto) {
     const existingProduct = carrinho.find((p) => p.key === produto.key);
 
@@ -134,16 +83,13 @@ export default function App() {
       <div className="container">
         <Header carrinho={carrinho} />
         <Banner />
-        <Produtos
-          produtos={produtos}
-          adicionarAoCarrinho={adicionarAoCarrinho}
-        />
         <Filtragem
           category={category}
           setCategory={setCategory}
           sort={sort}
-          setSort={setSort} 
+          setSort={setSort}
         />
+        <ProductList category={category} sort={sort} adicionarAoCarrinho={adicionarAoCarrinho} />
 
         <Carrinho
           carrinho={carrinho}
@@ -152,7 +98,7 @@ export default function App() {
         />
         <Checkout />
         <Popup />
-        <ProductList category={category} sort={sort} />
+
       </div>
     </main>
   );
