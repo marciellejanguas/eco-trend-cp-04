@@ -26,18 +26,19 @@ export function useProducts({ category, sort }) {
           url.searchParams.set("_order", ord);
         }
 
-        console.log("🔎 URL chamada:", url.toString());
+        console.log("URL chamada:", url.toString());
 
         const res = await fetch(url.toString(), {
           signal: controller.signal,
           headers: { Accept: "application/json" },
+          cache: "no-store",
         });
 
-        console.log("📡 Status:", res.status);
+        console.log("Status:", res.status);
 
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
-        console.log("📦 Itens recebidos:", Array.isArray(json) ? json.length : json);
+        console.log("Itens recebidos:", Array.isArray(json) ? json.length : json);
 
         setData(json);
       } catch (e) {

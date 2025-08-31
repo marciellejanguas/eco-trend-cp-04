@@ -138,7 +138,13 @@ export default function App() {
           produtos={produtos}
           adicionarAoCarrinho={adicionarAoCarrinho}
         />
-        <Filtragem />
+        <Filtragem
+          category={category}
+          setCategory={setCategory}
+          sort={sort}
+          setSort={setSort} 
+        />
+
         <Carrinho
           carrinho={carrinho}
           atualizarNoCarrinho={atualizarNoCarrinho}
@@ -146,13 +152,6 @@ export default function App() {
         />
         <Checkout />
         <Popup />
-
-        <FilterBar
-          category={category}
-          setCategory={setCategory}
-          sort={sort}
-          setSort={setSort}
-        />
         <ProductList category={category} sort={sort} />
       </div>
     </main>
