@@ -8,6 +8,7 @@ import Filtragem from "./components/filtragem";
 import Carrinho from "./components/carrinho";
 import Checkout from "./components/checkout";
 import Popup from "./components/popup";
+import { useEffect } from "react";
 
 export default function App() {
   const [category, setCategory] = useState("");
