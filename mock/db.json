@@ -1,7 +1,67 @@
 {
   "products": [
-    { "id": 1, "name": "Camiseta Orgânica", "price": 79.9, "category": "roupas", "image": "/img/camiseta.jpg", "stock": 12 },
-    { "id": 2, "name": "Escova de Bambu",  "price": 19.9, "category": "beleza", "image": "/img/escova.jpg",   "stock": 30 },
-    { "id": 3, "name": "Garrafa Reutilizável", "price": 49.9, "category": "casa", "image": "/img/garrafa.jpg", "stock": 20 }
+    {
+      "id": 1,
+      "name": "Vaso de Planta",
+      "price": 25,
+      "image": "img/produtos/1.png",
+      "stock": 45
+    },
+    {
+      "id": 2,
+      "name": "Sacola Ecobag",
+      "price": 145,
+      "category": "beleza",
+      "image": "img/produtos/2.png",
+      "stock": 25
+    },
+    {
+      "id": 3,
+      "name": "Escova de Dentes (Bambu)",
+      "price": 15,
+      "category": "beleza",
+      "image": "img/produtos/3.png",
+      "stock": 37
+    },
+    {
+      "id": 4,
+      "name": "Sabonete Ecológico",
+      "price": 27.9,
+      "category": "beleza",
+      "image": "img/produtos/4.png",
+      "stock": 33
+    },
+    {
+      "id": 5,
+      "name": "Caderno Reciclado (Nexa IT)",
+      "price": 5,
+      "category": "casa",
+      "image": "img/produtos/5.png",
+      "stock": 24
+    },
+    {
+      "id": 6,
+      "name": "Garrafa Térmica Inox",
+      "price": 74.9,
+      "category": "casa",
+      "image": "img/produtos/6.png",
+      "stock": 28
+    },
+    {
+      "id": 7,
+      "name": "Armação Óculos em Madeira",
+      "price": 199.9,
+      "category": "beleza",
+      "image": "img/produtos/7.png",
+      "stock": 21
+    },
+    {
+      "id": 8,
+      "name": "Carregador Solar Portátil",
+      "price": 180,
+      "category": "casa",
+      "image": "img/produtos/8.png",
+      "stock": 31
+    }
   ]
 }
