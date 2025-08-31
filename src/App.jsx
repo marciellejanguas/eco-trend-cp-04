@@ -13,8 +13,14 @@ export default function App() {
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
 
-  const [carrinho, setCarrinho] = useState([]);
+  const [carrinho, setCarrinho] = useState(
+    JSON.parse(localStorage.getItem("carrinho")) || []
+  );
   const [popupTimeout, setPopupTimeout] = useState();
+
+  useEffect(() => {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  }, [carrinho]);
 
   const produtos = [
     {
