@@ -7,7 +7,7 @@ export default function Carrinho({
   removerDoCarrinho,
 }) {
   const valorTotal = carrinho.reduce((sum, curr) => {
-    return sum + curr.valor * curr.quantidade;
+    return sum + curr.price * curr.quantidade;
   }, 0);
 
   return (
@@ -29,9 +29,9 @@ export default function Carrinho({
           </div>
           <div className="carrinho-products-list">
             {carrinho.map((produto) => (
-              <div className="carrinho-product" key={produto.key}>
-                <img src={produto.imgUrl} alt="" />
-                <p className="product-name">{produto.nome}</p>
+              <div className="carrinho-product" key={produto.id}>
+                <img src={produto.image} alt="" />
+                <p className="product-name">{produto.name}</p>
                 <div className="product-quantity">
                   <button
                     onClick={() => {
@@ -43,7 +43,7 @@ export default function Carrinho({
                           "Tem certeza que deseja remover do carrinho?"
                         );
                         if (result) {
-                          removerDoCarrinho(produto.key);
+                          removerDoCarrinho(produto.id);
                         }
                       }
                     }}
@@ -62,7 +62,7 @@ export default function Carrinho({
                 </div>
                 <h3 className="product-total">
                   R${" "}
-                  {(produto.valor * produto.quantidade)
+                  {(produto.price * produto.quantidade)
                     .toFixed(2)
                     .replace(".", ",")}
                 </h3>

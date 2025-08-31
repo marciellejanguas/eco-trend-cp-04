@@ -3,7 +3,6 @@ import FilterBar from "./components/FilterBar";
 import ProductList from "./components/ProductList";
 import Header from "./components/header";
 import Banner from "./components/banner";
-import Produtos from "./components/produtos";
 import Filtragem from "./components/filtragem";
 import Carrinho from "./components/carrinho";
 import Checkout from "./components/checkout";
@@ -24,14 +23,14 @@ export default function App() {
   }, [carrinho]);
 
   function adicionarAoCarrinho(produto) {
-    const existingProduct = carrinho.find((p) => p.key === produto.key);
+    const existingProduct = carrinho.find((p) => p.id === produto.id);
 
     if (existingProduct == undefined) {
       produto.quantidade = 1;
       setCarrinho([...carrinho, produto]);
     } else {
       const newCarrinho = carrinho.map((p) => {
-        if (p.key == produto.key) {
+        if (p.id == produto.id) {
           return {
             ...p,
             quantidade: p.quantidade + 1,
@@ -47,7 +46,7 @@ export default function App() {
 
   function atualizarNoCarrinho(produto) {
     const newCarrinho = carrinho.map((p) => {
-      if (p.key == produto.key) {
+      if (p.id == produto.id) {
         return {
           ...p,
           quantidade: produto.quantidade,
@@ -59,7 +58,7 @@ export default function App() {
   }
 
   function removerDoCarrinho(key) {
-    const newCarrinho = carrinho.filter((p) => p.key != key);
+    const newCarrinho = carrinho.filter((p) => p.id != key);
     setCarrinho(newCarrinho);
   }
 
@@ -89,7 +88,11 @@ export default function App() {
           sort={sort}
           setSort={setSort}
         />
-        <ProductList category={category} sort={sort} adicionarAoCarrinho={adicionarAoCarrinho} />
+        <ProductList
+          category={category}
+          sort={sort}
+          adicionarAoCarrinho={adicionarAoCarrinho}
+        />
 
         <Carrinho
           carrinho={carrinho}
@@ -98,7 +101,6 @@ export default function App() {
         />
         <Checkout />
         <Popup />
-
       </div>
     </main>
   );
