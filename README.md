@@ -9,6 +9,10 @@
 
 
 1ESPK - Diurno - Paulista
+# 1. Carrinho de Compras Dinâmico
+- Implementação de botões para alterar a quantidade dos produtos dentro do carrinho.
+- Integração com useState para cálculo dos valores totais automaticamente.
+- Criação de um modal para visualização das páginas de carrinho e checkout.
 
 # 2. Storage & JSON
 - Integração do carrinho com **localStorage** para manter os itens salvos entre sessões
