@@ -46,6 +46,7 @@
   padding: 0;
   font-family: "Lexend";
   color: rgb(35, 35, 35);
+  outline: 0;
 }
 
 input::-webkit-outer-spin-button,
@@ -148,7 +149,7 @@ header {
   position: relative;
   color: white;
   margin-top: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 100px;
   border-radius: 8px;
 }
 
@@ -204,6 +205,7 @@ header {
 }
 
 .produtos {
+  margin-bottom: 100px;
   text-align: center;
   width: 100%;
 }
@@ -300,7 +302,8 @@ header {
 }
 
 input,
-select {
+select,
+textarea {
   width: 100%;
   padding: 8px 15px;
   font-size: 14px;
@@ -309,6 +312,11 @@ select {
   border: 0;
   outline: 0;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
 }
 
 .modal {
@@ -627,4 +635,117 @@ select {
   to {
     transform: rotate(360deg);
   }
+}
+
+.sobre {
+  width: 100%;
+  height: 80vh;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  margin-bottom: 100px;
+  border-radius: 8px;
+  display: flex;
+}
+
+.sobre .w50 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+}
+
+.sobre .first {
+  background-image: url("../img/sust.jpg");
+  background-size: cover;
+  border-radius: 8px 0 0 8px;
+}
+
+.sobre .second {
+  background-color: rgb(235, 235, 235);
+  border-radius: 0 8px 8px 0;
+}
+
+.sobre h1 {
+  font-weight: 300;
+  letter-spacing: 3px;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.contato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.contato h1 {
+  font-weight: 300;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.contato form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgb(243, 243, 243);
+}
+
+.contato form button {
+  padding: 10px;
+  background-color: rgb(81, 164, 81);
+  border: 0;
+  outline: 0;
+  color: white;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  width: 100%;
+}
+
+footer {
+  width: 100%;
+  background-color: rgb(57, 85, 54);
+  text-align: center;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.clip {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 74% 100%);
+  width: 100%;
+  height: 100%;
+  background-color: rgb(67, 95, 63);
+  position: absolute;
+}
+
+footer h3 {
+  color: white;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  z-index: 2;
+}
+
+footer p {
+  color: white;
+  font-weight: 200;
+  letter-spacing: 1px;
+  font-size: 12px;
+  z-index: 2;
 }

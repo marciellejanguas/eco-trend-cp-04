@@ -9,6 +9,9 @@ import Checkout from "./components/checkout";
 import Popup from "./components/popup";
 import { useEffect } from "react";
 import CheckoutStatus from "./components/checkoutstatus";
+import Sobre from "./components/sobre";
+import Contato from "./components/contato";
+import Footer from "./components/footer";
 
 export default function App() {
   const [category, setCategory] = useState("");
@@ -94,6 +97,8 @@ export default function App() {
           sort={sort}
           adicionarAoCarrinho={adicionarAoCarrinho}
         />
+        <Sobre />
+        <Contato />
 
         <Carrinho
           carrinho={carrinho}
@@ -104,6 +109,7 @@ export default function App() {
         <CheckoutStatus />
         <Popup />
       </div>
+      <Footer />
     </main>
   );
 }
