@@ -1,7 +1,39 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 export default function Checkout() {
+  const [loading, setLoading] = useState(false);
+
+  function simularCheckout() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const sucesso = Math.random() > 0.3;
+        if (sucesso) {
+          resolve("Pagamento aprovado!");
+        } else {
+          reject("Pagamento recusado!");
+        }
+      }, 2500);
+    });
+  }
+
+  async function finalizarCompra() {
+    setLoading(true);
+    const botao = document.getElementById("confirmar-pagamento");
+    botao.disabled = true
+    
+    try {
+      const msg = await simularCheckout();
+      console.log("Spinner OFF ");
+      console.log(msg);
+    } catch (err) {
+      console.log("Spinner OFF");
+      console.error(err);
+    }
+  }
+
   return (
     <section className="modal checkout" id="checkout">
       <div className="modal-container" id="modal-checkout">
@@ -105,7 +137,18 @@ export default function Checkout() {
               </div>
             </div>
 
-            <button id="confirmar-pagamento">Confirmar</button>
+            <button
+              id="confirmar-pagamento"
+              onClick={() => {
+                finalizarCompra();
+              }}
+            >
+              {loading ? (
+                <FontAwesomeIcon icon={faSpinner} spin size="xl" />
+              ) : (
+                "Confirmar"
+              )}
+            </button>
           </div>
 
           <div className="efetuar-pagamento" id="pagamento-pix">
