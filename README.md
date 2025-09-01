@@ -20,6 +20,11 @@ E-commerce de produtos sustentáveis, com foco em **funcionalidades interativas*
 - **Spinner** de carregamento e **tratamento de erro**
 - **Filtros** por categoria e **ordenação** por preço
 
+# 4. Promises & Checkout:
+- Criação de uma função que simula o fluxo de checkout de um pedido.
+- Utilização de Promises e async/await para estruturar o processo de forma assíncrona.
+- Exibição desde a parte da **validação**, **confirmação** e **mensagens de sucesso/erro**.
+
 ## Stack
 - React (Vite)
 - JSON Server (fake API)
