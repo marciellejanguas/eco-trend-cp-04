@@ -10,6 +10,10 @@
 
 1ESPK - Diurno - Paulista
 
+# 2. Storage & JSON
+- Integração do carrinho com **localStorage** para manter os itens salvos entre sessões
+- Implementado com `useEffect` para salvar e restaurar o estado do carrinho
+
 # 3. Requisições Assíncronas com Fetch:
 E-commerce de produtos sustentáveis, com foco em **funcionalidades interativas** usando **React + JavaScript**:
 - Carregamento de produtos via **fake API** (JSON Server) e `fetch` (`async/await`)
