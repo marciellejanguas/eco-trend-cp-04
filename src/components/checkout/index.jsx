@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 export default function Checkout() {
@@ -21,17 +20,30 @@ export default function Checkout() {
 
   async function finalizarCompra() {
     setLoading(true);
-    const botao = document.getElementById("confirmar-pagamento");
-    botao.disabled = true
-    
+    const h1 = document.getElementById("checkout-status-h1");
+
     try {
       const msg = await simularCheckout();
-      console.log("Spinner OFF ");
-      console.log(msg);
+      h1.innerText = msg;
     } catch (err) {
-      console.log("Spinner OFF");
-      console.error(err);
+      h1.innerText = err;
     }
+
+    const divCheckout = document.getElementById("checkout");
+    const divCheckoutStatus = document.getElementById("checkout-status");
+    const modais = document.querySelectorAll(".modal-container");
+    divCheckout.style["display"] = "none";
+    divCheckoutStatus.style["display"] = "flex";
+    modais.forEach((modal) => {
+      modal.style["top"] = "-200%";
+      setInterval(() => {
+        modal.style["top"] = 0;
+      }, 100);
+    });
+
+    setTimeout(() => {
+      location.reload();
+    }, 5000);
   }
 
   return (
@@ -137,22 +149,34 @@ export default function Checkout() {
               </div>
             </div>
 
-            <button
-              id="confirmar-pagamento"
-              onClick={() => {
-                finalizarCompra();
-              }}
-            >
-              {loading ? (
-                <FontAwesomeIcon icon={faSpinner} spin size="xl" />
-              ) : (
-                "Confirmar"
-              )}
-            </button>
+            {loading ? (
+              <FontAwesomeIcon id="spinner" icon={faSpinner} size="xl" />
+            ) : (
+              <button
+                id="confirmar-pagamento"
+                onClick={() => {
+                  finalizarCompra();
+                }}
+              >
+                Confirmar
+              </button>
+            )}
           </div>
 
           <div className="efetuar-pagamento" id="pagamento-pix">
             <img src="img/qrcode.jpg" alt="" />
+            {loading ? (
+              <FontAwesomeIcon id="spinner" icon={faSpinner} size="xl" />
+            ) : (
+              <button
+                id="confirmar-pagamento"
+                onClick={() => {
+                  finalizarCompra();
+                }}
+              >
+                Simular Pagamento
+              </button>
+            )}
           </div>
         </div>
       </div>

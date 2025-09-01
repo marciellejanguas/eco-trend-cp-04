@@ -8,6 +8,7 @@ import Carrinho from "./components/carrinho";
 import Checkout from "./components/checkout";
 import Popup from "./components/popup";
 import { useEffect } from "react";
+import CheckoutStatus from "./components/checkoutstatus";
 
 export default function App() {
   const [category, setCategory] = useState("");
@@ -100,6 +101,7 @@ export default function App() {
           removerDoCarrinho={removerDoCarrinho}
         />
         <Checkout />
+        <CheckoutStatus />
         <Popup />
       </div>
     </main>

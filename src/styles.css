@@ -368,7 +368,8 @@ select {
 }
 
 .carrinho,
-.checkout {
+.checkout,
+.checkout-status {
   display: none;
 }
 
@@ -567,7 +568,7 @@ select {
 }
 
 .efetuar-pagamento img {
-  width: 50%;
+  width: 10vw;
 }
 
 .popup {
@@ -600,4 +601,30 @@ select {
   color: rgb(81, 164, 81);
   width: 26px;
   height: 26px;
+}
+
+.checkout-status-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+#checkout-status-h1 {
+  font-weight: normal;
+}
+
+#spinner {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
